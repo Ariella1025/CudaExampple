@@ -142,7 +142,7 @@ __global__ void matrix_multiplication(const float* A, const float* B, float* C, 
             // 确认第一个元素在共享内存中的位置
             int row_in_Ashared_block = col_in_A_block;
             int col_in_Ashared_block = row_in_A_block;
-            int index_in_Ashared_block = get_1d_index(row_in_Ashared_block, col_in_Ashared_block, BLOCK_SIZE_ROW);
+            int index_in_Ashared_block = get_1d_index(row_in_Ashared_block,  col_in_Ashared_block, BLOCK_SIZE_ROW);
             // 保存4个元素, float4中是按照x, y, z, w顺序存储的
             // 转置后, 每移动一个元素, 共享内存的向量位置增加BLOCK_SIZE_ROW
             As[index_in_Ashared_block] = data.x;
