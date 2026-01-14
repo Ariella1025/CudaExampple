@@ -52,7 +52,7 @@ def solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):
     grid = (triton.cdiv(rows, BLOCK_SIZE_R), triton.cdiv(cols, BLOCK_SIZE_C))
     matrix_transpose_kernel[grid](
         input, output, rows, cols, stride_ir, stride_ic, stride_or, stride_oc,
-        BLOCK_SIZE_R , BLOCK_SIZE_C
+        BLOCK_SIZE_R , BLOCK_SIZE_C                     # type: ignore
     )
 
 if __name__ == "__main__":
